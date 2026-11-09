@@ -6,7 +6,11 @@ import io
 from pathlib import Path
 from typing import Optional, List, Dict, Any, Tuple
 import httpx
-from PIL import Image
+try:
+    from PIL import Image
+    HAS_PIL = True
+except ImportError:
+    HAS_PIL = False
 
 def _load_env_if_present():
     env_path = Path(".env")
@@ -337,9 +341,16 @@ async def scan_screenshot(payload: ScanScreenshotPayload, db: Session = Depends(
 
     try:
         raw_bytes = base64.b64decode(raw_b64)
-        # Validate that bytes form a valid image using PIL
-        pil_img = Image.open(io.BytesIO(raw_bytes))
-        pil_img.verify()
+        if HAS_PIL:
+            pil_img = Image.open(io.BytesIO(raw_bytes))
+            pil_img.verify()
+        else:
+            # Fallback signature check for PNG, JPEG, WEBP, GIF
+            if not (raw_bytes.startswith(b'\x89PNG\r\n\x1a\n') or
+                    raw_bytes.startswith(b'\xff\xd8\xff') or
+                    (raw_bytes.startswith(b'RIFF') and b'WEBP' in raw_bytes[:16]) or
+                    raw_bytes.startswith(b'GIF8')):
+                raise ValueError("Invalid image header bytes")
     except Exception:
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
