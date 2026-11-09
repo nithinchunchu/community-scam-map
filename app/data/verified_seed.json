@@ -1,0 +1,21 @@
+[
+  {"identifier_type": "phone", "identifier_value": "1930", "owner_name": "National Cybercrime Helpline"},
+  {"identifier_type": "phone", "identifier_value": "1909", "owner_name": "TRAI Do Not Disturb"},
+  {"identifier_type": "phone", "identifier_value": "18001600", "owner_name": "HDFC Bank customer care"},
+  {"identifier_type": "phone", "identifier_value": "18002600", "owner_name": "HDFC Bank customer care"},
+  {"identifier_type": "phone", "identifier_value": "18001080", "owner_name": "ICICI Bank customer care"},
+  {"identifier_type": "phone", "identifier_value": "18001234", "owner_name": "State Bank of India customer care"},
+  {"identifier_type": "phone", "identifier_value": "18002100", "owner_name": "State Bank of India customer care"},
+  {"identifier_type": "phone", "identifier_value": "18604195555", "owner_name": "Axis Bank customer care"},
+  {"identifier_type": "phone", "identifier_value": "18602662666", "owner_name": "Kotak Mahindra Bank customer care"},
+  {"identifier_type": "phone", "identifier_value": "+918041002233", "owner_name": "Fresh Bakes, Indiranagar (made up)"},
+  {"identifier_type": "phone", "identifier_value": "+918025530190", "owner_name": "Koramangala Pharmacy (made up)"},
+  {"identifier_type": "sender_id", "identifier_value": "HDFCBK", "owner_name": "HDFC Bank SMS sender"},
+  {"identifier_type": "sender_id", "identifier_value": "ICICIB", "owner_name": "ICICI Bank SMS sender"},
+  {"identifier_type": "sender_id", "identifier_value": "SBIINB", "owner_name": "State Bank of India SMS sender"},
+  {"identifier_type": "sender_id", "identifier_value": "AXISBK", "owner_name": "Axis Bank SMS sender"},
+  {"identifier_type": "sender_id", "identifier_value": "KOTAKB", "owner_name": "Kotak Mahindra Bank SMS sender"},
+  {"identifier_type": "url", "identifier_value": "https://cybercrime.gov.in", "owner_name": "National Cyber Crime Reporting Portal"},
+  {"identifier_type": "url", "identifier_value": "https://sancharsaathi.gov.in", "owner_name": "Sanchar Saathi"},
+  {"identifier_type": "upi", "identifier_value": "freshbakes@okaxis", "owner_name": "Fresh Bakes, Indiranagar (made up)"}
+]

@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: community-scam-map
+    env: docker
+    region: singapore
+    plan: free
+    healthCheckPath: /health
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: scammap-postgres
+          property: connectionString
+      - key: SERVER_SECRET
+        generateValue: true
+      - key: SECRET_KEY
+        generateValue: true
+      - key: LICENSE_JSON
+        value: '{"licensee":"Community Demo","expires_at":"2026-12-06T10:39:10.547361+05:30","signature":"94RrxXvk4abwq4ddr4UuYl6zZbt4VO0pIRejBnoCg5rGBLIkPht//N4NWBdw2VXuUY5NRIUG/+XWWOdHaXnHAw=="}'
+
+databases:
+  - name: scammap-postgres
+    databaseName: scammap
+    user: scammap
+    region: singapore
+    plan: free
